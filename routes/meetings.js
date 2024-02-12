@@ -6,7 +6,7 @@ import User from "../modules/User.js";
 
 
 // GOOGLE - APIS 
-import { calendar , calendar_id , Credentials , auth } from "../config/google-apis.js"
+import { calendar , calendar_id ,  auth } from "../config/google-apis.js"
 
 
 // Parsing request
@@ -82,10 +82,11 @@ router.delete("/:id", async (req, res) => {
   const event_id = req.params.id;
   try {
     await user1.deleteEvent(calendar, auth, calendar_id, event_id);
-    res.status(204).send({
+    res.status(204);
+    res.send({
       success: true,
       message: `Event : ${event_id} Deleted Successfully`,
-    });
+    })
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({
