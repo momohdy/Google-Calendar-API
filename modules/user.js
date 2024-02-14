@@ -17,7 +17,7 @@ class User {
   bookAppointment(calendar, event, auth, calendarId) {
     if (!this.isPastDate(event)) {
       return this.insertEvent(calendar, event, auth, calendarId);
-    } else return "Rejected : Date in the Past!";
+    }
   }
 
   insertEvent = (calendar, event, auth, calendar_id) => {
@@ -30,7 +30,6 @@ class User {
         },
         (err, res) => {
           if (err) {
-            console.error("Error creating event:", err.message);
             reject(err);
           } else {
             resolve(res.data);
@@ -93,7 +92,19 @@ class User {
           if (err) {
             reject(err);
           } else {
-            resolve(res.data.items);
+            const items = res.data.items.map(
+              (item) =>
+                (item = {
+                  id: item.id,
+                  summary: item.summary,
+                  description: item.description,
+                  creator: item.creator,
+                  organizer: item.organizer,
+                  start: item.start,
+                  end: item.end,
+                })
+            );
+            resolve(items);
           }
         }
       );
