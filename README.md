@@ -1,19 +1,63 @@
-Google Calendar - Set Appointment Application 
+## Google Calendar - Set Appointment Application 
 
-Modules => node_modules 
+#  Description 
 
-Custom Modules => User Model 
+What my application does ?
 
-Paradigm ....
-Application is OOP Paradigm 
+my Application allow Users to 
 
-# Video Description 
+1 ) Set a Date 
+2 ) Get all Dates for Specific Time-Region 
+3 ) Update on Existing Date 
+4 ) Delete Existing Date 
 
-https://drive.google.com/file/d/1OcU-7DAsdO6EbbsdLbSrzGESip4MNzAx/view?usp=sharing
 
-1 ) You Can BOOK an Appointment 
+Why i used the technologies i used ? 
 
-by following Google-apis for calendar Format 
+1 ) Node.js     : suitful JavaScript environment for creating and   managing APIs
+2 ) Express.js  : create a Server 
+3 ) googleapis  : connect with Google Calendar and Integrate with its apis
+4 ) dotenv      : save Local Environment Variables 
+
+Some of the challenges i faced and features i hope to implement in the future ?
+
+-   PROBLEMS    =>      SOLUTIONS 
+
+-   i faced Challenge in integrate my app with Google-Calendar       =>   i read many documents about this tobic 
+
+-   i faced Challenge in knowing where is my error exactly           =>   i made Error Handling
+
+-   i faced Challenge in difficulity of maintain my project in future =>  i followed Object Oriented Programming Paradigm ( OOP )
+
+
+# How to Install and Run the Project ?
+
+## Integration
+
+- [ Follow tis video to install your environment variables for integrate project with Google-Calendar ](https://youtu.be/dFaV95gS_0M?si=MwbLEHpssQK-WvCR)
+
+## Local environment
+
+1 ) Clone the Repository 
+2 ) run  { npm init } to initialize your Node environment
+3 ) run  { npm i dotenv express googleapis } to install require dependencies 
+4 ) OPTIONAL : run  { npm i nodemon } to install devDependency of monitoring changes in your code
+5 ) run node app.js (if you installed nodemon run npm start) to start your server 
+
+## Set [.env] Variables
+
+PORT        = your port 
+CREDENTIALS = your CREDENTIALS
+CALENDAR_ID = your CALENDAR_ID
+
+
+# How to Use the Project ?
+
+ => [ PROJECT DEMO ](https://drive.google.com/file/d/12tfATKvguU7ed3vaVq9Sahdv4oibXH4Z/view?usp=sharing)
+
+## BOOK EVENTS 
+
+1 ) You Can BOOK an EVENTS , by following Google-apis for calendar Format 
 
 {
     "summary" : "{{HERE IS SUMMARY}}" ,
@@ -28,11 +72,10 @@ by following Google-apis for calendar Format
     }" ,
 }
 
-///////////////////
 
-2 ) You Can GET all Appointments in specific time region  
+## GET EVENTS  
 
-by following Google-apis for calendar Format 
+2 ) You Can GET all Events in specific time-region , by following Google-apis for calendar Format 
 
 {
     "eventTimeStart" : "{{TIME}}",
@@ -40,15 +83,13 @@ by following Google-apis for calendar Format
     "timeZone" : "{TIMEZONE}"
 }
 
+## UPDATE SPECEFIC EVENT 
 
-
-//////////////////////////
-
-3 ) You Can UPDATE an Appointment 
-
-by following Google-apis for calendar Format 
+3 ) You Can UPDATE an Appointment , by insert eventId in the URL then follow Google-apis for calendar Format 
 
 {
+    "summary" : "{{HERE IS SUMMARY}}" ,
+    "description" : "{{HER IS DESCRIPTION}}" ,
     "start" : " {
         "dateTime": "{{TIME}}",
         "timeZone": "{TIMEZONE}"
@@ -57,25 +98,15 @@ by following Google-apis for calendar Format
         "dateTime": "{{TIME}}",
         "timeZone": "{TIMEZONE}"
     }" ,
-    "summary" : "{{HERE IS SUMMARY}}" ,
-    "description" : "{{HER IS DESCRIPTION}}" ,
 }
 
-//////////////////////////
 
-4 ) You Can DELETE an Appointment 
+## DELETE SPECEFIC EVENT 
 
-by following Google-apis for calendar Format 
+4 ) You Can DELETE an Event , just insert eventId in the URL  
 
-{
-    "start" : " {
-        "dateTime": "{{TIME}}",
-        "timeZone": "{TIMEZONE}"
-    }" ,
-    "end" : " {
-        "dateTime": "{{TIME}}",
-        "timeZone": "{TIMEZONE}"
-    }" ,
-    "summary" : "{{HERE IS SUMMARY}}" ,
-    "description" : "{{HER IS DESCRIPTION}}" ,
-}
+
+
+# License
+
+- This project is licensed under the ([GPL License](https://choosealicense.com/licenses/gpl-3.0/)) - see the [LICENSE](LICENSE) file for details.
