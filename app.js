@@ -1,10 +1,18 @@
+//  IMPORT
 // Builtin Modules
 import express from "express";
+import morgan from "morgan";
+// Custom Modules
+import { router } from "./routes/meetings.js";
+//
+
 const app = express();
 const api = "/api/v1";
 
-// MEETINGS ROUTE
-import { router } from "./routes/meetings.js";
+// MORGAN MIDDLEWARE => LOGGER MIDDLEWARE
+app.use(morgan("dev"));
+
+// ROUTE HANDLING
 app.use(`${api}/meetings`, router);
 
 app.listen(process.env.PORT, () => {
@@ -18,3 +26,4 @@ app.get("/", (req, res) => {
 app.get(api, (req, res) => {
   res.send("Hello From Root");
 });
+
